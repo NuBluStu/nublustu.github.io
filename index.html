@@ -3,221 +3,165 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Daniel Dalton — engineer, musician, independent builder</title>
-<meta name="description" content="Daniel Dalton builds complete products alone — most recently The Matchmaker, an AI matchmaker dating app. CS at UC San Diego, music at UC Berkeley, Apple, Qualcomm, Salesforce, Rivall.">
+<title>Daniel Dalton</title>
+<meta name="description" content="Daniel Dalton — engineer, musician, independent builder. Founder of The Matchmaker. Previously Salesforce, Rivall (acquired by Volo Sports), Apple, Qualcomm.">
 <style>
   :root {
     color-scheme: light;
-    --paper: #FCFBF8;
-    --ink: #14161D;
-    --ink-soft: #494E5C;
-    --muted: #9AA0AE;
-    --hairline: #E8E7E1;
-    --blue: #2946CC;
-    --blue-deep: #1B2E8A;
-    --blue-sky: #6CA0FF;
-    --blue-wash: #EEF1FB;
-    --rose: #FF5C8A;
-    --violet: #9A6CFF;
-    --peach: #FFB48A;
-    --serif: ui-serif, "New York", Georgia, serif;
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --paper: #FFFFFF;
+    --ink: #111114;
+    --ink-soft: #4C4E55;
+    --muted: #8E9097;
+    --hairline: #E7E6E2;
+    --accent: #185FA5;
+    --sans: "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.62; font-size: 16px; }
-  a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-  a:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
-  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-  header { border-bottom: 1px solid var(--hairline); }
-  .head-row { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
-  .head-mark { display: flex; align-items: center; gap: 12px; font-family: var(--serif); font-size: 17px; }
-  .mini-orb { width: 26px; height: 26px; border-radius: 50%;
-    background: radial-gradient(circle at 38% 32%, #A9C4FF 0%, #2946CC 55%, #1B2E8A 100%);
-    box-shadow: 0 2px 10px rgba(41,70,204,0.35); }
-  .head-mail { font-size: 13.5px; color: var(--ink-soft); text-decoration: none; border: 1px solid var(--hairline); border-radius: 999px; padding: 6px 15px; }
+  .page { max-width: 960px; margin: 0 auto; padding: 64px 28px 80px; display: grid; grid-template-columns: 250px 1fr; gap: 64px; }
+  @media (max-width: 760px) { .page { grid-template-columns: 1fr; gap: 40px; padding-top: 44px; } .rail { position: static; } }
 
-  /* hero */
-  .hero { display: grid; grid-template-columns: 1fr 230px; gap: 48px; align-items: center; padding: 76px 0 64px; }
-  @media (max-width: 720px) { .hero { grid-template-columns: 1fr; padding: 48px 0 40px; } .portrait { order: -1; margin: 0 auto; } }
-  .kicker { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); font-weight: 600; margin: 0 0 16px; }
-  h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(38px, 6vw, 56px); line-height: 1.05; margin: 0 0 18px; letter-spacing: -0.015em; }
-  .hero-sub { color: var(--ink-soft); font-size: 17.5px; max-width: 52ch; margin: 0 0 28px; }
-  .hero-sub b { color: var(--ink); }
-  .cta-row { display: flex; gap: 13px; flex-wrap: wrap; }
-  .btn { display: inline-block; text-decoration: none; font-size: 15px; font-weight: 600; padding: 12px 24px; border-radius: 999px; }
-  .btn-blue { background: var(--blue); color: #fff; }
-  .btn-ghost { color: var(--ink-soft); border: 1px solid var(--hairline); font-weight: 500; }
+  /* left rail */
+  .rail { position: sticky; top: 48px; align-self: start; }
+  .accent-bar { width: 32px; height: 5px; background: var(--accent); margin-bottom: 22px; }
+  .name { font-size: 30px; font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; margin: 0 0 14px; }
+  .identity { font-size: 14px; color: var(--ink-soft); line-height: 1.75; margin: 0 0 26px; }
+  .rail-links { display: flex; flex-direction: column; gap: 7px; font-size: 14px; }
+  .rail-note { font-size: 12.5px; color: var(--muted); margin-top: 28px; line-height: 1.6; }
 
-  .portrait { position: relative; width: 210px; height: 210px; }
-  .portrait .glow { position: absolute; inset: -14px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(41,70,204,0.28), rgba(108,160,255,0.12) 55%, transparent 72%);
-    filter: blur(18px); animation: shimmer 4s ease-in-out infinite; }
-  .portrait .orb { position: relative; width: 100%; height: 100%; border-radius: 50%;
-    background:
-      radial-gradient(circle at 34% 26%, rgba(255,255,255,0.85), rgba(255,255,255,0) 44%),
-      radial-gradient(circle at 66% 30%, rgba(108,160,255,0.9), rgba(108,160,255,0) 60%),
-      radial-gradient(circle at 30% 70%, rgba(27,46,138,0.95), rgba(27,46,138,0) 65%),
-      radial-gradient(circle at 42% 38%, #6CA0FF 0%, #2946CC 52%, #1B2E8A 100%);
-    box-shadow: 0 26px 60px rgba(27,46,138,0.28);
-    display: flex; align-items: center; justify-content: center;
-    animation: breathe 5.2s ease-in-out infinite;
-  }
-  .portrait .initials { font-family: var(--serif); font-size: 64px; color: rgba(255,255,255,0.92); letter-spacing: 0.02em; user-select: none; }
-  @keyframes breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.035); } }
-  @keyframes shimmer { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
-  @media (prefers-reduced-motion: reduce) { .portrait .orb, .portrait .glow { animation: none; } }
+  /* right column */
+  section { padding: 0 0 36px; margin: 0 0 36px; border-bottom: 1px solid var(--hairline); }
+  section:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .label { font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 0 0 18px; }
+  .about { font-size: 17px; line-height: 1.65; max-width: 56ch; margin: 0; }
+  .about + .about { margin-top: 14px; }
+  .about b { font-weight: 600; }
 
-  /* sections */
-  section { padding: 56px 0; }
-  section + section { border-top: 1px solid var(--hairline); }
-  .sec-label { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 0 0 10px; }
-  h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(24px, 3.2vw, 32px); line-height: 1.22; margin: 0 0 14px; text-wrap: balance; }
-  .lede { color: var(--ink-soft); font-size: 16.5px; max-width: 62ch; }
+  .entry { display: grid; grid-template-columns: 170px 1fr; gap: 20px; padding: 13px 0; border-top: 1px solid var(--hairline); }
+  .entry:first-of-type { border-top: none; padding-top: 0; }
+  @media (max-width: 560px) { .entry { grid-template-columns: 1fr; gap: 2px; } }
+  .entry .org { font-weight: 600; font-size: 15px; }
+  .entry .org a { color: var(--ink); }
+  .entry .org a:hover { color: var(--accent); }
+  .entry .role { font-size: 15px; color: var(--ink-soft); max-width: 52ch; }
+  .entry .role .tag { color: var(--accent); font-weight: 600; }
+  .entry .detail { font-size: 13.5px; color: var(--muted); margin-top: 3px; }
 
-  /* the arc */
-  .arc { margin-top: 34px; display: flex; flex-direction: column; gap: 0; }
-  .chapter { display: grid; grid-template-columns: 190px 1fr; gap: 28px; padding: 22px 0; border-top: 1px solid var(--hairline); }
-  .chapter:first-child { border-top: none; }
-  @media (max-width: 640px) { .chapter { grid-template-columns: 1fr; gap: 6px; } }
-  .chapter h3 { font-family: var(--serif); font-weight: 500; font-size: 19px; margin: 0; color: var(--blue-deep); }
-  .chapter p { margin: 0; color: var(--ink-soft); font-size: 15.5px; max-width: 58ch; }
-  .chapter p b { color: var(--ink); font-weight: 600; }
+  .skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px 24px; font-size: 14.5px; color: var(--ink-soft); margin: 0; padding: 0; list-style: none; }
+  .skills li { border-top: 1px solid var(--hairline); padding: 8px 0; }
 
-  /* now — project cards */
-  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 34px; }
-  @media (max-width: 720px) { .projects { grid-template-columns: 1fr; } }
-  .proj { border: 1px solid var(--hairline); border-radius: 18px; padding: 24px 26px; background: #fff; display: flex; flex-direction: column; gap: 10px; }
-  .proj-head { display: flex; align-items: center; gap: 13px; }
-  .proj-orb { width: 38px; height: 38px; border-radius: 50%; flex: none; }
-  .proj-orb.mm { background: radial-gradient(circle at 40% 35%, #FFB48A 0%, #FF5C8A 48%, #9A6CFF 100%); box-shadow: 0 4px 16px rgba(255,92,138,0.35); }
-  .proj-orb.ky { background: radial-gradient(circle at 40% 35%, #A9C4FF 0%, #2946CC 55%, #14161D 100%); box-shadow: 0 4px 16px rgba(41,70,204,0.3); }
-  .proj h3 { font-family: var(--serif); font-weight: 500; font-size: 21px; margin: 0; }
-  .proj .role { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-  .proj p { margin: 0; color: var(--ink-soft); font-size: 14.5px; flex: 1; }
-  .proj .plink { font-size: 14px; font-weight: 600; }
+  .contact-line { font-size: 17px; margin: 0; }
+  .contact-line a { font-weight: 600; }
 
-  /* how I work */
-  .stack-row { display: flex; flex-wrap: wrap; gap: 9px; margin: 22px 0 0; }
-  .chip { font-size: 13px; color: var(--ink-soft); border: 1px solid var(--hairline); background: #fff; border-radius: 999px; padding: 6px 14px; }
-  .music-note { font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: 16.5px; border-left: 3px solid var(--blue); padding: 4px 0 4px 20px; margin: 30px 0 0; max-width: 52ch; }
-
-  /* contact */
-  .contact { background: var(--blue-wash); border-top: 1px solid var(--hairline); }
-  .contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-  .contact h2 { margin-bottom: 6px; }
-  .contact .lede { margin: 0; }
-
-  footer { padding: 34px 0 52px; color: var(--muted); font-size: 13px; }
-  .foot-row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer { max-width: 960px; margin: 0 auto; padding: 0 28px 60px; font-size: 12.5px; color: var(--muted); }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap head-row">
-    <span class="head-mark"><span class="mini-orb" aria-hidden="true"></span>Daniel Dalton</span>
-    <a class="head-mail" href="mailto:newbluestudios@gmail.com">newbluestudios@gmail.com</a>
-  </div>
-</header>
+<div class="page">
+  <aside class="rail">
+    <div class="accent-bar" aria-hidden="true"></div>
+    <h1 class="name">Daniel<br>Dalton</h1>
+    <p class="identity">Engineer<br>Musician<br>Independent builder</p>
+    <nav class="rail-links" aria-label="Contact and links">
+      <a href="mailto:newbluestudios@gmail.com">newbluestudios@gmail.com</a>
+      <a href="https://nublustu.github.io/matchmaker-launch/">The Matchmaker</a>
+      <a href="https://github.com/NuBluStu">GitHub</a>
+    </nav>
+    <p class="rail-note">Currently raising for The Matchmaker — live demo on request.</p>
+  </aside>
 
-<main>
-  <div class="wrap hero">
-    <div>
-      <p class="kicker">Engineer · Musician · Independent builder</p>
-      <h1>Daniel Dalton</h1>
-      <p class="hero-sub">I build complete products alone — design, mobile, backend, and the AI inside. Most recently <b>The Matchmaker</b>, a dating app with no swipe-to-match, running end-to-end in private beta on TestFlight.</p>
-      <div class="cta-row">
-        <a class="btn btn-blue" href="mailto:newbluestudios@gmail.com?subject=Hello%20Daniel">Get in touch</a>
-        <a class="btn btn-ghost" href="https://nublustu.github.io/matchmaker-launch/">See The Matchmaker</a>
-      </div>
-    </div>
-    <div class="portrait" aria-hidden="true">
-      <div class="glow"></div>
-      <div class="orb"><span class="initials">DD</span></div>
-    </div>
-  </div>
+  <main>
+    <section>
+      <p class="label">About</p>
+      <p class="about">I build complete products alone — design, mobile, backend, and the AI inside. Most recently <b>The Matchmaker</b>, a dating app with no swipe-to-match: one ongoing conversation with an AI matchmaker, running end-to-end in private beta on TestFlight.</p>
+      <p class="about">Trained twice — computer science and music. Engineering taught me how to build systems; music taught me why people should care about them.</p>
+    </section>
 
-  <section>
-    <div class="wrap">
-      <p class="sec-label">The arc</p>
-      <h2>Trained twice. Apprenticed at scale. Then went independent.</h2>
-      <div class="arc">
-        <div class="chapter">
-          <h3>Two educations</h3>
-          <p>Computer science at <b>UC San Diego</b>; music at <b>UC Berkeley</b>. Engineering taught me how to build systems — music taught me why people should care about them.</p>
-        </div>
-        <div class="chapter">
-          <h3>Scale</h3>
-          <p>Internships at <b>Qualcomm</b> and <b>Apple</b>, then a first job at <b>Salesforce</b> — enterprise software, real users, and how big companies ship.</p>
-        </div>
-        <div class="chapter">
-          <h3>Startup</h3>
-          <p>Founding engineer at <b>Rivall</b>, building its social sports app — discovery, teams, and league operations for adult rec sports. The platform was <b>acquired by Volo Sports</b> and still runs under their hood today.</p>
-        </div>
-        <div class="chapter">
-          <h3>Independent</h3>
-          <p>Artist and creator since. In web3 I built <b>Trelis</b> — non-custodial Lightning payment links for bitcoin — and I&rsquo;ve been shipping my own AI products end to end ever since: consumer apps, agent systems, and the infrastructure to run them.</p>
+    <section>
+      <p class="label">Now</p>
+      <div class="entry">
+        <div class="org"><a href="https://nublustu.github.io/matchmaker-launch/">The Matchmaker</a></div>
+        <div>
+          <div class="role"><span class="tag">Founder</span> — an AI matchmaker instead of swiping. Solo-built: the iOS app, the five-axis matching engine, and a two-AI architecture that keeps photos and taste models on owned hardware.</div>
+          <div class="detail">Private beta on TestFlight</div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <p class="sec-label">Now</p>
-      <h2>Two bets on the agent era.</h2>
-      <div class="projects">
-        <div class="proj">
-          <div class="proj-head"><span class="proj-orb mm" aria-hidden="true"></span><div><h3>The Matchmaker</h3><span class="role">Founder &amp; builder</span></div></div>
-          <p>A dating app with no swipe-to-match: one ongoing conversation with an AI matchmaker who learns what you respond to and introduces you only when it&rsquo;s mutual. Built solo — the app, the matching engine, and a two-AI architecture that keeps photos and taste models on owned hardware. Private beta on TestFlight.</p>
-          <a class="plink" href="https://nublustu.github.io/matchmaker-launch/">The launch page →</a>
-        </div>
-        <div class="proj">
-          <div class="proj-head"><span class="proj-orb ky" aria-hidden="true"></span><div><h3>Kybernesis</h3><span class="role">Go-to-market</span></div></div>
-          <p>Infrastructure for the agent era: an AI orchestrator for enterprise — persistent agent memory, orchestration from a single agent to an AI workforce, and an open agent-to-agent protocol. I drive go-to-market and partnerships.</p>
-          <a class="plink" href="https://kybernesis.ai">kybernesis.ai →</a>
+      <div class="entry">
+        <div class="org"><a href="https://kybernesis.ai">Kybernesis</a></div>
+        <div>
+          <div class="role"><span class="tag">Go-to-market</span> — infrastructure for the agent era: persistent agent memory, enterprise orchestration, and an open agent-to-agent protocol. I drive growth and partnerships.</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <div class="wrap">
-      <p class="sec-label">How I work</p>
-      <h2>One person, whole products.</h2>
-      <p class="lede">I work across the entire stack and ship fast by pairing deep product taste with AI-native development. The Matchmaker&rsquo;s voice runs on Claude with native tool use; its vision, embeddings, and taste models run on local open-source models — an architecture chosen so intimate data never leaves machines I control, and so marginal cost stays near zero.</p>
-      <div class="stack-row">
-        <span class="chip">TypeScript / Node</span>
-        <span class="chip">React Native · Expo</span>
-        <span class="chip">Postgres · Supabase</span>
-        <span class="chip">LLM agents · Claude tool use</span>
-        <span class="chip">Local models · Ollama</span>
-        <span class="chip">Recommender systems</span>
-        <span class="chip">Lightning · on-chain infra</span>
-        <span class="chip">Product design</span>
+    <section>
+      <p class="label">Experience</p>
+      <div class="entry">
+        <div class="org">Salesforce</div>
+        <div>
+          <div class="role">Software engineer — first job out of school. Enterprise software, real users, how big companies ship.</div>
+        </div>
       </div>
-      <p class="music-note">Music is the other half — trained at Berkeley, still writing and releasing independently. It&rsquo;s why my products lead with feel: warmth, voice, and restraint before features.</p>
-    </div>
-  </section>
-</main>
+      <div class="entry">
+        <div class="org">Rivall</div>
+        <div>
+          <div class="role">Founding engineer — built the social sports app: discovery, teams, and league operations for adult rec sports.</div>
+          <div class="detail">Platform acquired by Volo Sports — still in production under their hood today</div>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="org">Apple · Qualcomm</div>
+        <div>
+          <div class="role">Engineering internships.</div>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="org">Independent</div>
+        <div>
+          <div class="role">Built <b style="font-weight:600">Trelis</b> — non-custodial Lightning payment links for bitcoin — and years of self-directed work across web3 and AI: agent systems, consumer apps, and the infrastructure to run them. Also a working artist: writing and releasing music independently.</div>
+        </div>
+      </div>
+    </section>
 
-<section class="contact">
-  <div class="wrap contact-inner">
-    <div>
-      <h2>Building in consumer AI — and raising for The Matchmaker.</h2>
-      <p class="lede">Want the live demo, the deck, or just to talk shop?</p>
-    </div>
-    <a class="btn btn-blue" href="mailto:newbluestudios@gmail.com?subject=The%20Matchmaker%20%E2%80%94%20let%27s%20talk">Email Daniel</a>
-  </div>
-</section>
+    <section>
+      <p class="label">Education</p>
+      <div class="entry">
+        <div class="org">UC San Diego</div>
+        <div><div class="role">Computer science</div></div>
+      </div>
+      <div class="entry">
+        <div class="org">UC Berkeley</div>
+        <div><div class="role">Music</div></div>
+      </div>
+    </section>
 
-<footer>
-  <div class="wrap foot-row">
-    <span>© 2026 Daniel Dalton · New Blue Studios</span>
-    <span><a href="https://nublustu.github.io/matchmaker-launch/">The Matchmaker</a> · <a href="https://github.com/NuBluStu">GitHub</a></span>
-  </div>
-</footer>
+    <section>
+      <p class="label">Toolkit</p>
+      <ul class="skills">
+        <li>TypeScript / Node</li>
+        <li>React Native · Expo</li>
+        <li>Postgres · Supabase</li>
+        <li>LLM agents · Claude tool use</li>
+        <li>Local models · Ollama</li>
+        <li>Recommender systems</li>
+        <li>Lightning · on-chain infra</li>
+        <li>Product design</li>
+      </ul>
+    </section>
+
+    <section>
+      <p class="label">Contact</p>
+      <p class="contact-line">Building in consumer AI and raising for The Matchmaker — <a href="mailto:newbluestudios@gmail.com?subject=The%20Matchmaker">newbluestudios@gmail.com</a></p>
+    </section>
+  </main>
+</div>
+
+<footer>© 2026 Daniel Dalton · New Blue Studios</footer>
 
 </body>
 </html>
